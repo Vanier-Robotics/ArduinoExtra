@@ -1,2 +1,1 @@
-# ArduinoSTL
-(temporary name)
+# ArduinoSTL (temporary name)
