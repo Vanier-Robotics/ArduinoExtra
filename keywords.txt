@@ -6,7 +6,7 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-function    KEYWORD1
+Function    KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
