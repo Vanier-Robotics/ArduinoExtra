@@ -1,5 +1,5 @@
 #######################################
-# Syntax Coloring Map For ArduinoSTL
+# Syntax Coloring Map For ArduinoExtra
 #######################################
 
 #######################################
