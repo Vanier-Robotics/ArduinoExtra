@@ -9,6 +9,8 @@
 #ifndef _INCLUDE_AEX_ARDUINO_EXTRA_H_
 #define _INCLUDE_AEX_ARDUINO_EXTRA_H_
 
+#include "ArduinoExtra/Array.h"
 #include "ArduinoExtra/functional.h"
+#include "ArduinoExtra/Vector.h"
 
 #endif // _INCLUDE_AEX_ARDUINO_EXTRA_H_
