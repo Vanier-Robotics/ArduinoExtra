@@ -27,11 +27,21 @@ class Vector
 {
 public:
     /**
-     * @brief Initialize and empty vector
+     * @brief Initialize an empty vector with capacity of 0
      * 
      */
     Vector()
     {
+    }
+
+    /**
+     * @brief Initialize an empty vector with a given capacity
+     * 
+     * @param initialCapacity intial capacity of the vector
+     */
+    Vector(size_t initialCapacity)
+    {
+        reAllocate(initialCapacity);
     }
  
     /**
@@ -170,7 +180,7 @@ public:
      * 
      * @return size_t size of the vector
      */
-    size_t size() const
+    size_t getSize() const
     {
         return m_size;
     }
