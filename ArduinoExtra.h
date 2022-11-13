@@ -9,6 +9,6 @@
 #ifndef _INCLUDE_AEX_ARDUINO_EXTRA_H_
 #define _INCLUDE_AEX_ARDUINO_EXTRA_H_
 
-#include "ArduinoExtra/functional.h"
+#include "ArduinoExtra/Functional.h"
 
 #endif // _INCLUDE_AEX_ARDUINO_EXTRA_H_
