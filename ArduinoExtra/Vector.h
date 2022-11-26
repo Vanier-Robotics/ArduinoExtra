@@ -101,7 +101,7 @@ public:
      * @param args arguments to pass to the constructor
      * @return T& reference to the new object
      */
-    template<typename... Args>
+    /*template<typename... Args>
     T& emplaceBack(Args... args)
     {
         if (m_size >= m_capacity)
@@ -112,7 +112,7 @@ public:
         // add the data
         new(&m_data[m_size]) T(forward<Args>(args)...); // create in place
         return m_data[m_size++];
-    }
+    }*/
  
     /**
      * @brief Remove the last element from the vector
