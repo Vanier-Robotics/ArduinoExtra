@@ -5,12 +5,25 @@
 #######################################
 # Data Types (KEYWORD1)
 #######################################
+
+Array	KEYWORD1
+Vector	KEYWORD1
 Function    KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-bind KEYWORD2
+bind    KEYWORD2
+move	KEYWORD2
+forward	KEYWORD2
+pushBack	KEYWORD2
+popBack	KEYWORD2
+clear	KEYWORD2
+getSize KEYWORD2
+isEmpty	KEYWORD2
+front	KEYWORD2
+back	KEYWORD2
+at	KEYWORD2
 
 #######################################
 # Instances (KEYWORD2)

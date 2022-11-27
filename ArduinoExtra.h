@@ -10,5 +10,7 @@
 #define _INCLUDE_AEX_ARDUINO_EXTRA_H_
 
 #include "ArduinoExtra/Functional.h"
+#include "ArduinoExtra/Array.h"
+#include "ArduinoExtra/Vector.h"
 
 #endif // _INCLUDE_AEX_ARDUINO_EXTRA_H_
