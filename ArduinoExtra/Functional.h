@@ -219,6 +219,15 @@ class Function<R(Args...)>
 {
 public:
 	/**
+	 * @brief Construct an empty, unusable Function object
+	 * 
+	 */
+	Function()
+	: m_callable(nullptr)
+	{
+	}
+
+	/**
 	 * @brief Create a Function object using a simple pointer to a function
 	 *
 	 * @param functionPtr Pointer to the function
@@ -261,12 +270,14 @@ public:
 	 */
 	Function& operator=(Function& other)
 	{
-		if (m_callable != nullptr)
+		if (m_callable)
 		{
 			delete m_callable;
 		}
 
 		m_callable = other.m_callable->copy();
+
+		return *this;
 	}
 
 	/**
@@ -279,12 +290,14 @@ public:
 	 */
 	Function& operator=(const Function& other)
 	{
-		if (m_callable != nullptr)
+		if (m_callable)
 		{
 			delete m_callable;
 		}
 
 		m_callable = other.m_callable->copy();
+
+		return *this;
 	}
 
 	/**
@@ -292,7 +305,8 @@ public:
 	 */
 	~Function()
 	{
-		delete m_callable;
+		if (m_callable)
+			delete m_callable;
 	}
 
 	/**
@@ -345,7 +359,7 @@ private:
 	{
 	}
 
-	priv::Callable<R(Args...)>* m_callable = nullptr; ///< Internal callable object
+	priv::Callable<R(Args...)>* m_callable; ///< Internal callable object
 };
 
 } // aex

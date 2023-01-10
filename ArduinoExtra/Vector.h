@@ -205,7 +205,9 @@ private:
     void reAllocate(size_t newCapacity)
     {
         // allocate new block of memory
-        T* newBlock = (T*)::operator new(newCapacity * sizeof(T));
+        //T* newBlock = (T*)::operator new(newCapacity * sizeof(T));
+
+        T* newBlock = new T[newCapacity];
  
         if (newCapacity < m_size)
         {
