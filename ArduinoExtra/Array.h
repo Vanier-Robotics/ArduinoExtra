@@ -3,7 +3,7 @@
  * @author Eliot Fondere
  * @brief Simple Fixed-Size Array Container
  * 
- * @copyright Copyright (c) 2022 Vanier Robotics (MIT License)
+ * @copyright Copyright (c) 2023 Vanier Robotics (MIT License)
  * 
  */
 #ifndef _INCLUDE_AEX_ARRAY_H_

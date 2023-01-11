@@ -3,9 +3,9 @@
  * @author Eliot Fondere
  * @brief Utility functions for ArduinoExtra (move semantics, forward, etc.)
  * 
- * @copyright Copyright (c) 2022 Vanier Robotics (MIT License)
+ * @copyright Copyright (c) 2023 Vanier Robotics (MIT License)
  * 
- * Credits:
+ * from:
  * https://stackoverflow.com/questions/37503114/how-to-implement-remove-reference
  * https://stackoverflow.com/questions/7510182/how-does-stdmove-transfer-values-into-rvalues
  * https://www.foonathan.net/2020/09/move-forward/

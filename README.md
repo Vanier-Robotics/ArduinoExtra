@@ -2,8 +2,8 @@
 
 ## Setup
 
-1. Install the [Arduino IDE](https://www.arduino.cc/en/software). The 2.0.0 version of the IDE just came out, but we haven't had a chance to test it out yet. If something doesn't work, try installing the legacy version instead.
-2. Clone this repository in the User/Documents/Arduino/libraries/ folder.
+1. Install the [Arduino IDE](https://www.arduino.cc/en/software). Use the new 2.0.0 version if possible as it is easier to work with.
+2. Clone this repository in the User/Documents/Arduino/libraries/ (or equivalent on Mac/Linux) folder.
 3. Open the Arduino IDE and create a new project. Write `#include <ArduinoExtra.h>` at the top of the file and press verify to make sure everything is installed properly.
 4. Open the cloned repository in VSCode or another text editor/IDE (make sure you don't commit your project files on accident).
 

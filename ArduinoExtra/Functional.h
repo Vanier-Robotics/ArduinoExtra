@@ -3,7 +3,7 @@
  * @author Eliot Fondere
  * @brief Function wrapper for global functions, static member functions, lambdas and member functions
  * 
- * @copyright Copyright (c) 2022 Vanier Robotics (MIT License)
+ * @copyright Copyright (c) 2023 Vanier Robotics (MIT License)
  *
  * @example
  * class ExampleClass
@@ -219,15 +219,6 @@ class Function<R(Args...)>
 {
 public:
 	/**
-	 * @brief Construct an empty, unusable Function object
-	 * 
-	 */
-	Function()
-	: m_callable(nullptr)
-	{
-	}
-
-	/**
 	 * @brief Create a Function object using a simple pointer to a function
 	 *
 	 * @param functionPtr Pointer to the function
@@ -359,7 +350,7 @@ private:
 	{
 	}
 
-	priv::Callable<R(Args...)>* m_callable; ///< Internal callable object
+	priv::Callable<R(Args...)>* m_callable = nullptr; ///< Internal callable object
 };
 
 } // aex

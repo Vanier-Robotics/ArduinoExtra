@@ -3,9 +3,9 @@
  * @author Eliot Fondere
  * @brief Simple Dynamic Array Container
  * 
- * @copyright Copyright (c) 2022 Vanier Robotics (MIT License)
+ * @copyright Copyright (c) 2023 Vanier Robotics (MIT License)
  * 
- * From:
+ * from:
  * https://www.youtube.com/watch?v=ryRf4Jh_YC0
  */
  

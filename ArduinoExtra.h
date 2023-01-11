@@ -3,7 +3,7 @@
  * @author Eliot Fondere
  * @brief Main header file for Vanier Robotics' ArduinoExtra library
  * 
- * @copyright Copyright (c) 2022 Vanier Robotics (MIT License)
+ * @copyright Copyright (c) 2023 Vanier Robotics (MIT License)
  */
 
 #ifndef _INCLUDE_AEX_ARDUINO_EXTRA_H_
