@@ -17,6 +17,7 @@ bind    KEYWORD2
 move	KEYWORD2
 forward	KEYWORD2
 pushBack	KEYWORD2
+emplaceBack	KEYWORD2
 popBack	KEYWORD2
 clear	KEYWORD2
 getSize KEYWORD2

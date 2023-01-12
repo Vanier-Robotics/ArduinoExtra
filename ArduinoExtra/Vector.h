@@ -13,7 +13,8 @@
 #define _INCULDE_AEX_VECTOR_H_
  
 #include "utils.h"
- 
+#include <new> 
+
 namespace aex
 {
  
@@ -27,11 +28,12 @@ class Vector
 {
 public:
     /**
-     * @brief Initialize an empty vector with capacity of 0
+     * @brief Initialize an empty vector with capacity of 2
      * 
      */
     Vector()
     {
+        reAllocate(2);
     }
 
     /**
@@ -51,8 +53,7 @@ public:
     ~Vector()
     {
         clear();
-        //::operator delete(m_data, m_capacity * sizeof(T));
-        delete[] m_data;
+        ::operator delete(m_data, m_capacity * sizeof(T));
     }
  
     /**
@@ -65,12 +66,12 @@ public:
         // re-allocate memory if required
         if (m_size >= m_capacity)
         {
-            reAllocate(m_capacity + m_capacity / 2 + 2);
+            reAllocate(m_capacity + max(m_capacity / 2, 1));
         }
  
         // copy data and increase the size
         m_data[m_size] = value;
-        m_size ++;
+        m_size++;
     }
  
     /**
@@ -86,12 +87,12 @@ public:
         // re-allocate memory if required
         if (m_size >= m_capacity)
         {
-            reAllocate(m_capacity + m_capacity / 2 + 2);
+            reAllocate(m_capacity + max(m_capacity / 2, 1));
         }
  
         // copy data and increase the size
         m_data[m_size] = move(value);
-        m_size ++;
+        m_size++;
     }
  
     /**
@@ -101,18 +102,18 @@ public:
      * @param args arguments to pass to the constructor
      * @return T& reference to the new object
      */
-    /*template<typename... Args>
-    T& emplaceBack(Args... args)
+    template<typename... Args>
+    T& emplaceBack(Args&&... args)
     {
         if (m_size >= m_capacity)
         {
-            reAllocate(m_capacity + m_capacity / 2 + 2);
+            reAllocate(m_capacity + max(m_capacity / 2, 1));
         }
  
         // add the data
         new(&m_data[m_size]) T(forward<Args>(args)...); // create in place
         return m_data[m_size++];
-    }*/
+    }
  
     /**
      * @brief Remove the last element from the vector
@@ -205,9 +206,7 @@ private:
     void reAllocate(size_t newCapacity)
     {
         // allocate new block of memory
-        //T* newBlock = (T*)::operator new(newCapacity * sizeof(T));
-
-        T* newBlock = new T[newCapacity];
+        T* newBlock = (T*)::operator new(newCapacity * sizeof(T));
  
         if (newCapacity < m_size)
         {
@@ -227,8 +226,7 @@ private:
         }
  
         // delete old elements
-        //::operator delete(m_data, m_capacity * sizeof(T));
-        delete[] m_data;
+        ::operator delete(m_data, m_capacity * sizeof(T));
         m_data     = newBlock;
         m_capacity = newCapacity;
     }
