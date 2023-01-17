@@ -28,12 +28,11 @@ class Vector
 {
 public:
     /**
-     * @brief Initialize an empty vector with capacity of 2
+     * @brief Initialize an empty vector
      * 
      */
     Vector()
     {
-        reAllocate(2);
     }
 
     /**
@@ -63,15 +62,8 @@ public:
      */
     void pushBack(const T& value)
     {
-        // re-allocate memory if required
-        if (m_size >= m_capacity)
-        {
-            reAllocate(m_capacity + max(m_capacity / 2, 1));
-        }
- 
         // copy data and increase the size
-        m_data[m_size] = value;
-        m_size++;
+        emplaceBack(value);
     }
  
     /**
@@ -84,15 +76,8 @@ public:
      */
     void pushBack(T&& value)
     {
-        // re-allocate memory if required
-        if (m_size >= m_capacity)
-        {
-            reAllocate(m_capacity + max(m_capacity / 2, 1));
-        }
- 
         // copy data and increase the size
-        m_data[m_size] = move(value);
-        m_size++;
+        emplaceBack(move(value));
     }
  
     /**
@@ -107,7 +92,7 @@ public:
     {
         if (m_size >= m_capacity)
         {
-            reAllocate(m_capacity + max(m_capacity / 2, 1));
+            reAllocate(m_capacity + max(m_capacity, 1));
         }
  
         // add the data
@@ -136,7 +121,7 @@ public:
     {
         for (size_t i = 0; i < m_size; i++)
         {
-            m_data[m_size].~T();
+            m_data[i].~T();
         }
  
         m_size = 0;
@@ -185,6 +170,16 @@ public:
     {
         return m_size;
     }
+
+    /**
+     * @brief Get the current capacity of the vector
+     * 
+     * @return size_t amount of elements that can be stored without needing to reallocate
+     */
+    size_t getCapacity() const
+    {
+        return m_capacity;
+    }
  
     /**
      * @brief Check if the vector is empty
@@ -217,7 +212,7 @@ private:
         // move old elements
         for (size_t i = 0; i < m_size; i++)
         {
-            newBlock[i] = move(m_data[i]);
+            new(&newBlock[i]) T(move(m_data[i])); // create in place
         }
  
         for (size_t i = 0; i < m_size; i++)
