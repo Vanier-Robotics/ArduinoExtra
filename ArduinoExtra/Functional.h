@@ -50,6 +50,8 @@
 #ifndef _INCLUDE_AEX_FUNCTIONAL_H_
 #define _INCLUDE_AEX_FUNCTIONAL_H_
 
+#include "utils.h"
+
 namespace aex
 {
 
@@ -89,6 +91,12 @@ public:
 	 * @return Return value of the object
 	 */
 	virtual R operator()(Args... args) = 0;
+
+	/**
+	 * @brief Default virtual destructor
+	 * 
+	 */
+	virtual ~Callable() = default;
 
 private:
 	/**
@@ -143,7 +151,7 @@ public:
 	 */
 	R operator()(Args... args) override
 	{
-		return m_functionPtr(args...);
+		return m_functionPtr(forward<Args>(args)...);
 	}
 
 private:
@@ -196,7 +204,7 @@ public:
 	 */
 	R operator()(Args... args) override
 	{
-		return (m_objectReference.*m_functionPtr)(args...);
+		return (m_objectReference.*m_functionPtr)(forward<Args>(args)...);
 	}
 
 private:
@@ -308,7 +316,7 @@ public:
 	 */
 	R operator()(Args... args)
 	{
-		return (*m_callable)(args...);
+		return (*m_callable)(forward<Args>(args)...);
 	}
 
 	/**
