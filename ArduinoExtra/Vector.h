@@ -51,6 +51,12 @@ public:
      */
     ~Vector()
     {
+        // prevent deletion of an empty/uninitialized vector
+        if (m_data == nullptr)
+        {
+            return;
+        }
+
         clear();
         ::operator delete(m_data, m_capacity * sizeof(T));
     }
