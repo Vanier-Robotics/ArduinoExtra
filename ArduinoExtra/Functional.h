@@ -5,7 +5,8 @@
  * 
  * @copyright Copyright (c) 2023 Vanier Robotics (MIT License)
  *
- * @example
+ * Example Usage:
+ * @code
  * class ExampleClass
  * {
  * public:
@@ -45,6 +46,7 @@
  *     aex::Function<void()> exampleFunction2([]() -> void { Serial.println("Lambda Function"); };
  *     exampleFunction2(); // Will write "Lambda Function" to the console
  * }
+ * @endcode
  */
 
 #ifndef _INCLUDE_AEX_FUNCTIONAL_H_
@@ -57,6 +59,8 @@ namespace aex
 
 /**
  * @brief Allow for template specialization of the Function class
+ * 
+ * @see Function<R(Args...)>
  */
 template<class... Args> class Function;
 
@@ -66,7 +70,7 @@ namespace priv
 /**
  * @brief Allow for template specialization of the Callable classes
  *
- * @todo: Add a callable for const functions?
+ * Todo: Add a callable for const functions?
  */
 template<class...> class Callable;
 template<class...> class FunctionCallable;
