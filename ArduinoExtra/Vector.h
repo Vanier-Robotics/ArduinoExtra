@@ -58,7 +58,7 @@ public:
         }
 
         clear();
-        ::operator delete(m_data, m_capacity * sizeof(T));
+        free(reinterpret_cast<void*>(m_data));
     }
  
     /**
@@ -193,7 +193,7 @@ public:
      * @return true vector is empty
      * @return false vector is not empty
      */
-    const bool isEmpty() const
+    bool isEmpty() const
     {
         return (m_size == 0);
     }
@@ -207,7 +207,7 @@ private:
     void reAllocate(size_t newCapacity)
     {
         // allocate new block of memory
-        T* newBlock = (T*)::operator new(newCapacity * sizeof(T));
+        T* newBlock = reinterpret_cast<T*>(malloc(newCapacity * sizeof(T)));
  
         if (newCapacity < m_size)
         {
@@ -227,7 +227,7 @@ private:
         }
  
         // delete old elements
-        ::operator delete(m_data, m_capacity * sizeof(T));
+        free(reinterpret_cast<void*>(m_data));
         m_data     = newBlock;
         m_capacity = newCapacity;
     }

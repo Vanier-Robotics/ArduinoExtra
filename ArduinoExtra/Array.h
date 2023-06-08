@@ -29,7 +29,7 @@ public:
      * 
      * Note the array is always full so the size is also the maximum capacity
      */
-    const size_t getSize()
+    size_t getSize()
     {
         return S;
     }
