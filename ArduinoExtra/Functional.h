@@ -43,8 +43,8 @@
  *     	   aex::Function<float(float, float)>::bind(exampleFunction);
  *     Serial.println(exampleFunction2(2.0f, 5.0f)); // Will output "10.00" to the console
  *
- *     aex::Function<void()> exampleFunction2([]() -> void { Serial.println("Lambda Function"); };
- *     exampleFunction2(); // Will write "Lambda Function" to the console
+ *     aex::Function<void()> exampleFunction3([]() -> void { Serial.println("Lambda Function"); });
+ *     exampleFunction3(); // Will write "Lambda Function" to the console
  * }
  * @endcode
  */
@@ -308,8 +308,7 @@ public:
 	 */
 	~Function()
 	{
-		if (m_callable)
-			delete m_callable;
+		delete m_callable;
 	}
 
 	/**

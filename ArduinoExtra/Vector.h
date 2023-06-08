@@ -209,14 +209,15 @@ private:
         // allocate new block of memory
         T* newBlock = reinterpret_cast<T*>(malloc(newCapacity * sizeof(T)));
  
+        size_t newSize = m_size;
         if (newCapacity < m_size)
         {
-            m_size = newCapacity;
+            newSize = newCapacity;
             // warning
         }
  
         // move old elements
-        for (size_t i = 0; i < m_size; i++)
+        for (size_t i = 0; i < newSize; i++)
         {
             new(&newBlock[i]) T(move(m_data[i])); // create in place
         }
@@ -228,6 +229,7 @@ private:
  
         // delete old elements
         free(reinterpret_cast<void*>(m_data));
+        m_size     = newSize;
         m_data     = newBlock;
         m_capacity = newCapacity;
     }
